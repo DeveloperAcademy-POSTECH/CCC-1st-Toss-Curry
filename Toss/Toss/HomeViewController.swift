@@ -18,6 +18,10 @@ class HomeViewController: UIViewController {
         stackView.distribution = .equalSpacing
         stackView.spacing = 11.0
         
+        let homeSectionView = HomeSectionView()
+        
+        [homeSectionView].forEach { stackView.addArrangedSubview($0) }
+        
         return stackView
     }()
     

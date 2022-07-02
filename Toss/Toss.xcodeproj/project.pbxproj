@@ -14,6 +14,8 @@
 		55A0A49C2870680900945C74 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 55A0A49B2870680900945C74 /* SnapKit */; };
 		55A0A49E28706AB400945C74 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A0A49D28706AB400945C74 /* TabBarController.swift */; };
 		55A0A4A028706DC500945C74 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A0A49F28706DC500945C74 /* HomeViewController.swift */; };
+		55A0A4A4287078FE00945C74 /* HomeSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A0A4A3287078FE00945C74 /* HomeSectionView.swift */; };
+		55A0A4A628707B6400945C74 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A0A4A528707B6400945C74 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		55A0A4992870679F00945C74 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		55A0A49D28706AB400945C74 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		55A0A49F28706DC500945C74 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		55A0A4A3287078FE00945C74 /* HomeSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionView.swift; sourceTree = "<group>"; };
+		55A0A4A528707B6400945C74 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,8 @@
 				55A0A4862870402000945C74 /* SceneDelegate.swift */,
 				55A0A49D28706AB400945C74 /* TabBarController.swift */,
 				55A0A49F28706DC500945C74 /* HomeViewController.swift */,
+				55A0A4A3287078FE00945C74 /* HomeSectionView.swift */,
+				55A0A4A528707B6400945C74 /* Model.swift */,
 				55A0A48D2870402200945C74 /* Assets.xcassets */,
 				55A0A48F2870402200945C74 /* LaunchScreen.storyboard */,
 				55A0A4922870402200945C74 /* Info.plist */,
@@ -172,7 +178,9 @@
 				55A0A49E28706AB400945C74 /* TabBarController.swift in Sources */,
 				55A0A4852870402000945C74 /* AppDelegate.swift in Sources */,
 				55A0A4872870402000945C74 /* SceneDelegate.swift in Sources */,
+				55A0A4A628707B6400945C74 /* Model.swift in Sources */,
 				55A0A4A028706DC500945C74 /* HomeViewController.swift in Sources */,
+				55A0A4A4287078FE00945C74 /* HomeSectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
