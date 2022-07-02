@@ -9,6 +9,8 @@ import UIKit
 import SnapKit
 
 class HomeSectionView: UIView {
+    var sectionType: HomeSectionType
+    
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -26,10 +28,11 @@ class HomeSectionView: UIView {
         }
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    // Custom Initializer
+    init(frame: CGRect, type: HomeSectionType) {
+        sectionType = type
         
-        setupLayout()
+        super.init(frame: frame)
     }
     
     required init?(coder: NSCoder) {

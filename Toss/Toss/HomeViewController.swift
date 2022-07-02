@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
         stackView.distribution = .equalSpacing
         stackView.spacing = 11.0
         
-        let homeSectionView = HomeSectionView()
+        let homeSectionView = HomeSectionView(frame: .zero, type: .tossBank)
         
         [homeSectionView].forEach { stackView.addArrangedSubview($0) }
         
