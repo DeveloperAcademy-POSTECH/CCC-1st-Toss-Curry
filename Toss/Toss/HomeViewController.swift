@@ -82,6 +82,8 @@ private extension HomeViewController {
         ]
         
         navigationItem.leftBarButtonItem = titleButton
+        
+        navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     func setupLayout() {
@@ -89,7 +91,7 @@ private extension HomeViewController {
         scrollView.snp.makeConstraints {
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(16.0)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.bottom.equalToSuperview()
         }
         
