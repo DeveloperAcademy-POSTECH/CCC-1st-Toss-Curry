@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 
+// TODO: 더미데이터 불러오기 및 연결 구현
 class HomeViewController: UIViewController {
     private let scrollView = UIScrollView()
     private let contentView = UIView()
@@ -17,6 +18,8 @@ class HomeViewController: UIViewController {
         stackView.axis = .vertical
         stackView.distribution = .equalSpacing
         stackView.spacing = 11.0
+        stackView.layer.cornerRadius = 12.0
+        stackView.clipsToBounds = true
         
         let homeSectionView = HomeSectionView(frame: .zero, type: .tossBank)
         
@@ -47,6 +50,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         setupNavigationBar()
+        setupLayout()
     }
 }
 
@@ -66,7 +70,7 @@ private extension HomeViewController {
         scrollView.snp.makeConstraints {
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
-            $0.top.equalTo(scrollView.safeAreaLayoutGuide.snp.top)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.bottom.equalToSuperview()
         }
         
@@ -79,8 +83,10 @@ private extension HomeViewController {
         
         contentView.addSubview(stackView)
         stackView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-            $0.width.equalToSuperview()
+            $0.leading.equalToSuperview().inset(16.0)
+            $0.trailing.equalToSuperview().inset(16.0)
+            $0.top.equalToSuperview()
+            $0.bottom.equalToSuperview()
             $0.height.equalToSuperview()
         }
     }

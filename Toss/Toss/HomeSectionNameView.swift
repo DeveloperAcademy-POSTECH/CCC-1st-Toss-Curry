@@ -11,6 +11,7 @@ import SnapKit
 class HomeSectionNameView: UIView {
     var sectionType: HomeSectionType
     
+    // TODO: 버튼 터치 시 깜빡임 애니메이션 구현
     private lazy var pushViewButton: UIButton = {
         let button = UIButton()
         button.addTarget(nil, action: #selector(pushView), for: .touchUpInside)
@@ -21,7 +22,7 @@ class HomeSectionNameView: UIView {
     private lazy var sectionNameLabel: UILabel = {
         let label = UILabel()
         label.text = sectionType.sectionName
-        label.font = .systemFont(ofSize: 20.0, weight: .semibold)
+        label.font = .systemFont(ofSize: 24.0, weight: .semibold)
         
         return label
     }()

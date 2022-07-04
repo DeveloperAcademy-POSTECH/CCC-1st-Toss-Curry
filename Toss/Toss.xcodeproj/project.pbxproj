@@ -18,6 +18,7 @@
 		55A0A4A628707B6400945C74 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A0A4A528707B6400945C74 /* Model.swift */; };
 		55A0A4A828707DF200945C74 /* HomeSectionNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A0A4A728707DF200945C74 /* HomeSectionNameView.swift */; };
 		55A0A4AA287096D000945C74 /* HomeSectionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A0A4A9287096D000945C74 /* HomeSectionListView.swift */; };
+		55A0A4AC28709C7900945C74 /* HomeSectionListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A0A4AB28709C7900945C74 /* HomeSectionListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		55A0A4A528707B6400945C74 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		55A0A4A728707DF200945C74 /* HomeSectionNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionNameView.swift; sourceTree = "<group>"; };
 		55A0A4A9287096D000945C74 /* HomeSectionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionListView.swift; sourceTree = "<group>"; };
+		55A0A4AB28709C7900945C74 /* HomeSectionListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				55A0A4A3287078FE00945C74 /* HomeSectionView.swift */,
 				55A0A4A728707DF200945C74 /* HomeSectionNameView.swift */,
 				55A0A4A9287096D000945C74 /* HomeSectionListView.swift */,
+				55A0A4AB28709C7900945C74 /* HomeSectionListCell.swift */,
 				55A0A4A528707B6400945C74 /* Model.swift */,
 				55A0A48D2870402200945C74 /* Assets.xcassets */,
 				55A0A48F2870402200945C74 /* LaunchScreen.storyboard */,
@@ -188,6 +191,7 @@
 				55A0A4A628707B6400945C74 /* Model.swift in Sources */,
 				55A0A4A028706DC500945C74 /* HomeViewController.swift in Sources */,
 				55A0A4AA287096D000945C74 /* HomeSectionListView.swift in Sources */,
+				55A0A4AC28709C7900945C74 /* HomeSectionListCell.swift in Sources */,
 				55A0A4A4287078FE00945C74 /* HomeSectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

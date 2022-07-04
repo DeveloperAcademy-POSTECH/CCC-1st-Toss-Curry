@@ -17,6 +17,14 @@ class HomeSectionView: UIView {
         stackView.distribution = .equalSpacing
         stackView.spacing = 0.0
         
+        let homeSectionNameView = HomeSectionNameView(frame: .zero, type: sectionType)
+        let homeSectionListView = HomeSectionListView(frame: .zero, type: sectionType)
+        
+        [
+            homeSectionNameView,
+            homeSectionListView
+        ].forEach { stackView.addArrangedSubview($0) }
+        
         return stackView
     }()
     
@@ -33,6 +41,14 @@ class HomeSectionView: UIView {
         sectionType = type
         
         super.init(frame: frame)
+        
+        addSubview(stackView)
+        
+        stackView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        self.backgroundColor = .white
     }
     
     required init?(coder: NSCoder) {
