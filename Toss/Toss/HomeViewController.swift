@@ -83,7 +83,12 @@ private extension HomeViewController {
         
         navigationItem.leftBarButtonItem = titleButton
         
-        navigationController?.navigationBar.shadowImage = UIImage()
+        let navigationAppearance = UINavigationBarAppearance()
+        navigationAppearance.configureWithDefaultBackground()
+        navigationAppearance.backgroundEffect = UIBlurEffect(style: .systemThickMaterialLight)
+        navigationAppearance.shadowColor = nil
+        navigationController?.navigationBar.standardAppearance = navigationAppearance
+
     }
     
     func setupLayout() {

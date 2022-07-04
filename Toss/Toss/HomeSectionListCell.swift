@@ -25,7 +25,7 @@ class HomeSectionListCell: UITableViewCell {
         let label = UILabel()
         label.text = sectionRow?.description
         label.textColor = .darkGray
-        label.font = .systemFont(ofSize: 10.0)
+        label.font = .systemFont(ofSize: 14.0)
         
         return label
     }()
