@@ -10,6 +10,8 @@ import SnapKit
 
 // TODO: 더미데이터 불러오기 및 연결 구현
 class HomeViewController: UIViewController {
+    var data: [TossData] = []
+    
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     
@@ -19,9 +21,9 @@ class HomeViewController: UIViewController {
         stackView.distribution = .equalSpacing
         stackView.spacing = 11.0
         
-        let tossSectionView = HomeSectionView(frame: .zero, type: .tossBank)
-        let assetSectionView = HomeSectionView(frame: .zero, type: .assets)
-        let consumeSectionView = HomeSectionView(frame: .zero, type: .consumption)
+        let tossSectionView = HomeSectionView(frame: .zero, sectionData: data[0])
+        let assetSectionView = HomeSectionView(frame: .zero, sectionData: data[1])
+        let consumeSectionView = HomeSectionView(frame: .zero, sectionData: data[2])
         let homeInformationView = HomeInformationView(frame: .zero)
         
         [
@@ -36,24 +38,35 @@ class HomeViewController: UIViewController {
     
     private lazy var plusBarButton: UIBarButtonItem = {
         let button = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: nil)
+        button.tintColor = .lightGray
         
         return button
     }()
     
     private lazy var chatBarButton: UIBarButtonItem = {
         let button = UIBarButtonItem(image: UIImage(systemName: "message.fill"), style: .plain, target: self, action: nil)
+        button.tintColor = .lightGray
         
         return button
     }()
     
     private lazy var alarmBarButton: UIBarButtonItem = {
         let button = UIBarButtonItem(image: UIImage(systemName: "bell.fill"), style: .plain, target: self, action: nil)
+        button.tintColor = .lightGray
+        
+        return button
+    }()
+    
+    private lazy var titleButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(title: "toss", style: .plain, target: self, action: nil)
+        button.tintColor = .lightGray
         
         return button
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        data = dummyData
         
         setupNavigationBar()
         setupLayout()
@@ -62,13 +75,13 @@ class HomeViewController: UIViewController {
 
 private extension HomeViewController {
     func setupNavigationBar() {
-        navigationItem.title = "toss"
-        
         navigationItem.rightBarButtonItems = [
             alarmBarButton,
             chatBarButton,
             plusBarButton
         ]
+        
+        navigationItem.leftBarButtonItem = titleButton
     }
     
     func setupLayout() {
@@ -76,7 +89,7 @@ private extension HomeViewController {
         scrollView.snp.makeConstraints {
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(16.0)
             $0.bottom.equalToSuperview()
         }
         

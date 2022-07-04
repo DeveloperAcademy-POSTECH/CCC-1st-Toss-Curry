@@ -9,15 +9,21 @@ import UIKit
 import SnapKit
 
 class HomeSectionListView: UIView {
-    var sectionType: HomeSectionType
+    var sectionList: [SectionList]
     
     // TODO: row가 1개일 경우 separator가 보이지 않도록 구현
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         
         tableView.rowHeight = 95.0
-        tableView.separatorStyle = .singleLine
-        tableView.separatorInset = UIEdgeInsets(top: 8.0, left: 0.0, bottom: 8.0, right: 0.0)
+        tableView.separatorStyle = {
+            if sectionList.count == 1 {
+                return .none
+            } else {
+                return .singleLine
+            }
+        }()
+        tableView.separatorInset = UIEdgeInsets(top: 8.0, left: 24.0, bottom: 8.0, right: 24.0)
         tableView.layer.cornerRadius = 15.0
         
         tableView.delegate = self
@@ -28,8 +34,8 @@ class HomeSectionListView: UIView {
         return tableView
     }()
         
-    init(frame: CGRect, type: HomeSectionType) {
-        sectionType = type
+    init(frame: CGRect, list: [SectionList]) {
+        sectionList = list
         
         super.init(frame: frame)
         
@@ -37,7 +43,7 @@ class HomeSectionListView: UIView {
         
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
-            $0.height.equalTo(HomeSectionListCell.height)
+            $0.height.equalTo(HomeSectionListCell.height * CGFloat(sectionList.count))
         }
     }
     
@@ -57,13 +63,13 @@ extension HomeSectionListView: UITableViewDelegate {
 extension HomeSectionListView: UITableViewDataSource {
     // TODO: 데이터 갯수에 따라 변화되도록 구현
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        sectionList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeSectionListCell", for: indexPath) as? HomeSectionListCell
         
-        cell?.setup(type: sectionType)
+        cell?.setup(row: sectionList[indexPath.row])
         
         return cell ?? UITableViewCell()
     }

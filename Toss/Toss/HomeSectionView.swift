@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class HomeSectionView: UIView {
-    var sectionType: HomeSectionType
+    var sectionData: TossData
     
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
@@ -17,8 +17,8 @@ class HomeSectionView: UIView {
         stackView.distribution = .equalSpacing
         stackView.spacing = 0.0
         
-        let homeSectionNameView = HomeSectionNameView(frame: .zero, type: sectionType)
-        let homeSectionListView = HomeSectionListView(frame: .zero, type: sectionType)
+        let homeSectionNameView = HomeSectionNameView(frame: .zero, type: sectionData.sectionType)
+        let homeSectionListView = HomeSectionListView(frame: .zero, list: sectionData.sectionList)
         
         [
             homeSectionNameView,
@@ -29,8 +29,8 @@ class HomeSectionView: UIView {
     }()
     
     // Custom Initializer
-    init(frame: CGRect, type: HomeSectionType) {
-        sectionType = type
+    init(frame: CGRect, sectionData: TossData) {
+        self.sectionData = sectionData
 
         super.init(frame: frame)
         

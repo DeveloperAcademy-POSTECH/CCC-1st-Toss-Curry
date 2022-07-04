@@ -11,11 +11,11 @@ import SnapKit
 class HomeSectionListCell: UITableViewCell {
     static let height: CGFloat = 95.0
     
-    var sectionType: HomeSectionType?
+    var sectionRow: SectionList?
     
     private lazy var listImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "TossBankImage")
+        imageView.image = UIImage(named: sectionRow?.image ?? "xmark.octagon")
         imageView.contentMode = .scaleAspectFill
         
         return imageView
@@ -23,7 +23,7 @@ class HomeSectionListCell: UITableViewCell {
     
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = sectionType?.listCellDescriptionText
+        label.text = sectionRow?.description
         label.textColor = .darkGray
         label.font = .systemFont(ofSize: 10.0)
         
@@ -32,14 +32,14 @@ class HomeSectionListCell: UITableViewCell {
     
     private lazy var mainLabel: UILabel = {
         let label = UILabel()
-        label.text = sectionType?.listCellMainText
+        label.text = sectionRow?.title
         label.font = .systemFont(ofSize: 18.0, weight: .medium)
         
         return label
     }()
     
-    func setup(type: HomeSectionType) {
-        sectionType = type
+    func setup(row: SectionList) {
+        sectionRow = row
         setupViews()
     }
 }
