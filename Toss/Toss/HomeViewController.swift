@@ -22,11 +22,13 @@ class HomeViewController: UIViewController {
         let tossSectionView = HomeSectionView(frame: .zero, type: .tossBank)
         let assetSectionView = HomeSectionView(frame: .zero, type: .assets)
         let consumeSectionView = HomeSectionView(frame: .zero, type: .consumption)
+        let homeInformationView = HomeInformationView(frame: .zero)
         
         [
             tossSectionView,
             assetSectionView,
-            consumeSectionView
+            consumeSectionView,
+            homeInformationView
         ].forEach { stackView.addArrangedSubview($0) }
         
         return stackView

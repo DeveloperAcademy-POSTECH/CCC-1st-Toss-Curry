@@ -39,8 +39,6 @@ class HomeSectionListView: UIView {
             $0.edges.equalToSuperview()
             $0.height.equalTo(HomeSectionListCell.height)
         }
-        
-        tableView.reloadData()
     }
     
     required init?(coder: NSCoder) {
