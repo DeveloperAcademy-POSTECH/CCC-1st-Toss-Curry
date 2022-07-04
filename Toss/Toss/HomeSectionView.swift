@@ -28,18 +28,10 @@ class HomeSectionView: UIView {
         return stackView
     }()
     
-    func setupLayout() {
-        addSubview(stackView)
-        
-        stackView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
-    }
-    
     // Custom Initializer
     init(frame: CGRect, type: HomeSectionType) {
         sectionType = type
-        
+
         super.init(frame: frame)
         
         addSubview(stackView)
@@ -48,6 +40,7 @@ class HomeSectionView: UIView {
             $0.edges.equalToSuperview()
         }
         
+        self.layer.cornerRadius = 15.0
         self.backgroundColor = .white
     }
     

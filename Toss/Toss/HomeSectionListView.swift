@@ -18,6 +18,7 @@ class HomeSectionListView: UIView {
         tableView.rowHeight = 95.0
         tableView.separatorStyle = .singleLine
         tableView.separatorInset = UIEdgeInsets(top: 8.0, left: 0.0, bottom: 8.0, right: 0.0)
+        tableView.layer.cornerRadius = 15.0
         
         tableView.delegate = self
         tableView.dataSource = self

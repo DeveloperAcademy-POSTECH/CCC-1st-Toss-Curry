@@ -18,12 +18,16 @@ class HomeViewController: UIViewController {
         stackView.axis = .vertical
         stackView.distribution = .equalSpacing
         stackView.spacing = 11.0
-        stackView.layer.cornerRadius = 12.0
-        stackView.clipsToBounds = true
         
-        let homeSectionView = HomeSectionView(frame: .zero, type: .tossBank)
+        let tossSectionView = HomeSectionView(frame: .zero, type: .tossBank)
+        let assetSectionView = HomeSectionView(frame: .zero, type: .assets)
+        let consumeSectionView = HomeSectionView(frame: .zero, type: .consumption)
         
-        [homeSectionView].forEach { stackView.addArrangedSubview($0) }
+        [
+            tossSectionView,
+            assetSectionView,
+            consumeSectionView
+        ].forEach { stackView.addArrangedSubview($0) }
         
         return stackView
     }()
