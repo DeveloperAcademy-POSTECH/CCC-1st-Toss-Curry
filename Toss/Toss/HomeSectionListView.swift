@@ -61,7 +61,6 @@ extension HomeSectionListView: UITableViewDelegate {
 }
 
 extension HomeSectionListView: UITableViewDataSource {
-    // TODO: 데이터 갯수에 따라 변화되도록 구현
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         sectionList.count
     }
