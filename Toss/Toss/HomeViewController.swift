@@ -8,7 +8,6 @@
 import UIKit
 import SnapKit
 
-// TODO: 더미데이터 불러오기 및 연결 구현
 class HomeViewController: UIViewController {
     var data: [TossData] = []
     
@@ -37,28 +36,29 @@ class HomeViewController: UIViewController {
     }()
     
     private lazy var plusBarButton: UIBarButtonItem = {
-        let button = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: nil)
+        let button = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(pushView))
         button.tintColor = .lightGray
         
         return button
     }()
     
     private lazy var chatBarButton: UIBarButtonItem = {
-        let button = UIBarButtonItem(image: UIImage(systemName: "message.fill"), style: .plain, target: self, action: nil)
+        let button = UIBarButtonItem(image: UIImage(systemName: "message.fill"), style: .plain, target: self, action: #selector(pushView))
         button.tintColor = .lightGray
         
         return button
     }()
     
     private lazy var alarmBarButton: UIBarButtonItem = {
-        let button = UIBarButtonItem(image: UIImage(systemName: "bell.fill"), style: .plain, target: self, action: nil)
+        let button = UIBarButtonItem(image: UIImage(systemName: "bell.fill"), style: .plain, target: self, action: #selector(pushView))
         button.tintColor = .lightGray
         
         return button
     }()
     
+    // TODO: leftBarButton 왼쪽끝으로 가도록 구현
     private lazy var titleButton: UIBarButtonItem = {
-        let button = UIBarButtonItem(title: "toss", style: .plain, target: self, action: nil)
+        let button = UIBarButtonItem(image: UIImage(named: "TossLogo"), style: .plain, target: self, action: nil)
         button.tintColor = .lightGray
         
         return button
@@ -108,5 +108,9 @@ private extension HomeViewController {
             $0.bottom.equalToSuperview()
             $0.height.equalToSuperview()
         }
+    }
+    
+    @objc func pushView() {
+        self.navigationController?.pushViewController(TestDetailView(), animated: true)
     }
 }

@@ -11,7 +11,6 @@ import SnapKit
 class HomeSectionListView: UIView {
     var sectionList: [SectionList]
     
-    // TODO: row가 1개일 경우 separator가 보이지 않도록 구현
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         
@@ -57,6 +56,7 @@ extension HomeSectionListView: UITableViewDelegate {
     // TODO: 터치 시 그림자 안사라지는 오류 구현
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("touched \(indexPath.row) row")
+        
     }
 }
 

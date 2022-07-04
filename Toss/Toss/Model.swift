@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-// TODO: 더미데이터 구현
 enum HomeSectionType {
     case tossBank
     case assets
