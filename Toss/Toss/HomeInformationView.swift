@@ -24,6 +24,7 @@ class HomeInformationView: UIView {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.isPagingEnabled = true
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(HomeInformationCell.self, forCellWithReuseIdentifier: "HomeInformationCell")
         
         return collectionView
