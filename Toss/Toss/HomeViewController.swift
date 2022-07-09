@@ -56,12 +56,15 @@ class HomeViewController: UIViewController {
         return button
     }()
     
-    // TODO: leftBarButton 왼쪽끝으로 가도록 구현
     private lazy var titleButton: UIBarButtonItem = {
-        let button = UIBarButtonItem(image: UIImage(named: "TossLogo"), style: .plain, target: self, action: nil)
-        button.tintColor = .lightGray
+        let image = UIImage(named: "TossLogo")?.resizeTo(size: CGSize(width: 120.0, height: 300.0))
+        let button = UIButton()
+        button.setBackgroundImage(image, for: .normal)
         
-        return button
+        let barButton = UIBarButtonItem(customView: button)
+        barButton.tintColor = .lightGray
+        
+        return barButton
     }()
     
     override func viewDidLoad() {
@@ -119,5 +122,17 @@ private extension HomeViewController {
     
     @objc func pushView() {
         self.navigationController?.pushViewController(TestDetailView(), animated: true)
+    }
+}
+
+// 출처 : jeohong (https://github.com/DeveloperAcademy-POSTECH/CCC-1st-Toss-Chikong/blob/UI/Toss/Toss/ViewController.swift)
+extension UIImage {
+    func resizeTo(size: CGSize) -> UIImage {
+        let rendered = UIGraphicsImageRenderer(size: size)
+        let image = rendered.image { _ in
+            self.draw(in: CGRect.init(origin: CGPoint.zero, size: size))
+        }
+        
+        return image.withRenderingMode(self.renderingMode)
     }
 }
