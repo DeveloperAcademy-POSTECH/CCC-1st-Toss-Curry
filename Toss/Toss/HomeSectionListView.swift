@@ -15,13 +15,8 @@ class HomeSectionListView: UIView {
         let tableView = UITableView(frame: .zero)
         
         tableView.rowHeight = 95.0
-        tableView.separatorStyle = {
-            if sectionList.count == 1 {
-                return .none
-            } else {
-                return .singleLine
-            }
-        }()
+
+        tableView.separatorStyle = .singleLine
         tableView.separatorInset = UIEdgeInsets(top: 8.0, left: 24.0, bottom: 8.0, right: 24.0)
         tableView.layer.cornerRadius = 15.0
         
@@ -56,8 +51,8 @@ extension HomeSectionListView: UITableViewDelegate {
     // TODO: 터치 시 그림자 안사라지는 오류 구현
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("touched \(indexPath.row) row")
-        
     }
+    
 }
 
 extension HomeSectionListView: UITableViewDataSource {
@@ -68,8 +63,30 @@ extension HomeSectionListView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeSectionListCell", for: indexPath) as? HomeSectionListCell
         
+        if indexPath.row == sectionList.count - 1 {
+            DispatchQueue.main.async {
+                cell?.addAboveTheBottomBorderWithColor(color: .white)
+            }
+        }
         cell?.setup(row: sectionList[indexPath.row])
         
         return cell ?? UITableViewCell()
+    }
+}
+
+// 출처 : https://ios-development.tistory.com/215
+public extension UIView {
+    func addBottomBorderWithColor(color: UIColor) {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        border.frame = CGRect(x: 0, y: self.frame.size.height, width: self.frame.size.width, height: 1)
+        self.layer.addSublayer(border)
+    }
+
+    func addAboveTheBottomBorderWithColor(color: UIColor) {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        border.frame = CGRect(x: 0, y: self.frame.size.height - 1, width: self.frame.size.width, height: 1)
+        self.layer.addSublayer(border)
     }
 }
