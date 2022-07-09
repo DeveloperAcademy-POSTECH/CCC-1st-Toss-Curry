@@ -9,6 +9,8 @@ import UIKit
 import SnapKit
 
 class HomeSectionView: UIView {
+    weak var delegate: HomeSectionNameViewDelegate?
+    
     var sectionData: TossData
     
     private lazy var stackView: UIStackView = {
@@ -19,6 +21,8 @@ class HomeSectionView: UIView {
         
         let homeSectionNameView = HomeSectionNameView(frame: .zero, type: sectionData.sectionType)
         let homeSectionListView = HomeSectionListView(frame: .zero, list: sectionData.sectionList)
+        
+        homeSectionNameView.delegate = self
         
         [
             homeSectionNameView,
@@ -46,5 +50,11 @@ class HomeSectionView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension HomeSectionView: HomeSectionNameViewDelegate {
+    func pushTossBankView(type: HomeSectionType) {
+        delegate?.pushTossBankView(type: type)
     }
 }

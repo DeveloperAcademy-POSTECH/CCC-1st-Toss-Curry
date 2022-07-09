@@ -26,6 +26,10 @@ class HomeViewController: UIViewController {
         let homeInformationView = HomeInformationView(frame: .zero)
         let homeSettingView = HomeSettingView(frame: .zero)
         
+        tossSectionView.delegate = self
+        assetSectionView.delegate = self
+        consumeSectionView.delegate = self
+        
         [
             tossSectionView,
             assetSectionView,
@@ -136,5 +140,11 @@ extension UIImage {
         }
         
         return image.withRenderingMode(self.renderingMode)
+    }
+}
+
+extension HomeViewController: HomeSectionNameViewDelegate {
+    func pushTossBankView(type: HomeSectionType) {
+        print("전달받은 type: \(type)")
     }
 }

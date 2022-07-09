@@ -9,6 +9,8 @@ import UIKit
 import SnapKit
 
 class HomeSectionNameView: UIView {
+    weak var delegate: HomeSectionNameViewDelegate?
+    
     var sectionType: HomeSectionType
     
     private lazy var pushViewButton: UIButton = {
@@ -17,10 +19,12 @@ class HomeSectionNameView: UIView {
         config.cornerStyle = .medium
         
         var pushButton = UIButton(configuration: config)
+        
         pushButton.configurationUpdateHandler = { button in
             switch button.state {
             case .highlighted:
                 button.configuration?.baseBackgroundColor = UIColor(red: 209/255, green: 209/255, blue: 214/255, alpha: 1.0)
+                self.delegate?.pushTossBankView(type: self.sectionType)
             default:
                 button.configuration?.baseBackgroundColor = .white
             }
@@ -86,4 +90,8 @@ private extension HomeSectionNameView {
             $0.trailing.equalToSuperview().inset(24.0)
         }
     }
+}
+
+protocol HomeSectionNameViewDelegate: AnyObject {
+    func pushTossBankView(type: HomeSectionType)
 }
