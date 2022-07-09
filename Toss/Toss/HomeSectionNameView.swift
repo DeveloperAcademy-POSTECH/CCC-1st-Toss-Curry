@@ -11,12 +11,22 @@ import SnapKit
 class HomeSectionNameView: UIView {
     var sectionType: HomeSectionType
     
-    // TODO: 버튼 터치 시 깜빡임 애니메이션 구현
     private lazy var pushViewButton: UIButton = {
-        let button = UIButton()
-        button.addTarget(nil, action: #selector(pushView), for: .touchUpInside)
+        var config = UIButton.Configuration.filled()
+        config.baseBackgroundColor = .white
+        config.cornerStyle = .medium
         
-        return button
+        var pushButton = UIButton(configuration: config)
+        pushButton.configurationUpdateHandler = { button in
+            switch button.state {
+            case .highlighted:
+                button.configuration?.baseBackgroundColor = UIColor(red: 209/255, green: 209/255, blue: 214/255, alpha: 1.0)
+            default:
+                button.configuration?.baseBackgroundColor = .white
+            }
+        }
+        
+        return pushButton
     }()
     
     private lazy var sectionNameLabel: UILabel = {
@@ -43,6 +53,7 @@ class HomeSectionNameView: UIView {
         sectionType = type
         
         super.init(frame: frame)
+        self.layer.cornerRadius = 15.0
         
         setupViews()
     }
