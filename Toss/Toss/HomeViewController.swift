@@ -145,6 +145,13 @@ extension UIImage {
 
 extension HomeViewController: HomeSectionNameViewDelegate {
     func pushTossBankView(type: HomeSectionType) {
-        print("전달받은 type: \(type)")
+        switch type {
+        case .tossBank:
+            self.navigationController?.pushViewController(TossBankView(), animated: true)
+        case .assets:
+            self.navigationController?.pushViewController(AssetView(), animated: true)
+        case .consumption:
+            self.navigationController?.pushViewController(ConsumeView(), animated: true)
+        }
     }
 }
