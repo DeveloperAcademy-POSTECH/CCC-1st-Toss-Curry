@@ -9,6 +9,8 @@ import UIKit
 import SnapKit
 
 class HomeSectionListView: UIView {
+    weak var delegate: HomeSectionListViewDelegate?
+    
     var sectionType: HomeSectionType
     var sectionList: [SectionList]
     
@@ -29,7 +31,7 @@ class HomeSectionListView: UIView {
         return tableView
     }()
         
-    init(frame: CGRect,type: HomeSectionType ,list: [SectionList]) {
+    init(frame: CGRect, type: HomeSectionType, list: [SectionList]) {
         sectionType = type
         sectionList = list
         
@@ -52,7 +54,7 @@ extension HomeSectionListView: UITableViewDelegate {
     // TODO: show View 구현
     // TODO: 터치 시 그림자 안사라지는 오류 구현
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("touched \(indexPath.row) row")
+        delegate?.pushInfoView(sectionType: sectionType, consumeType: sectionList[indexPath.row].type)
     }
     
 }

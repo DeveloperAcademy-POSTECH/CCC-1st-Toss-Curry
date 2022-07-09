@@ -49,11 +49,6 @@ class HomeSectionNameView: UIView {
         return imageView
     }()
     
-    // TODO: pushView 구현필요
-    @objc func pushView() {
-        print("Touched HomeSectionNameView")
-    }
-    
     init(frame: CGRect, type: HomeSectionType) {
         sectionType = type
         

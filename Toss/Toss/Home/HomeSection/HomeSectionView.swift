@@ -9,7 +9,8 @@ import UIKit
 import SnapKit
 
 class HomeSectionView: UIView {
-    weak var nameViewdelegate: HomeSectionNameViewDelegate?
+    weak var nameViewDelegate: HomeSectionNameViewDelegate?
+    weak var listViewDelegate: HomeSectionListViewDelegate?
     
     var sectionData: TossData
     
@@ -23,6 +24,7 @@ class HomeSectionView: UIView {
         let homeSectionListView = HomeSectionListView(frame: .zero, type: sectionData.sectionType, list: sectionData.sectionList)
         
         homeSectionNameView.delegate = self
+        homeSectionListView.delegate = self
         
         [
             homeSectionNameView,
@@ -55,6 +57,12 @@ class HomeSectionView: UIView {
 
 extension HomeSectionView: HomeSectionNameViewDelegate {
     func pushTossBankView(type: HomeSectionType) {
-        nameViewdelegate?.pushTossBankView(type: type)
+        nameViewDelegate?.pushTossBankView(type: type)
+    }
+}
+
+extension HomeSectionView: HomeSectionListViewDelegate {
+    func pushInfoView(sectionType: HomeSectionType, consumeType: ConsumeType) {
+        listViewDelegate?.pushInfoView(sectionType: sectionType, consumeType: consumeType)
     }
 }

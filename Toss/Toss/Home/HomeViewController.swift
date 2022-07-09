@@ -26,9 +26,13 @@ class HomeViewController: UIViewController {
         let homeInformationView = HomeInformationView(frame: .zero)
         let homeSettingView = HomeSettingView(frame: .zero)
         
-        tossSectionView.nameViewdelegate = self
-        assetSectionView.nameViewdelegate = self
-        consumeSectionView.nameViewdelegate = self
+        tossSectionView.nameViewDelegate = self
+        assetSectionView.nameViewDelegate = self
+        consumeSectionView.nameViewDelegate = self
+        
+        tossSectionView.listViewDelegate = self
+        assetSectionView.listViewDelegate = self
+        consumeSectionView.listViewDelegate = self
         
         [
             tossSectionView,
@@ -157,4 +161,19 @@ extension HomeViewController: HomeSectionNameViewDelegate {
             self.navigationController?.pushViewController(ConsumeView(), animated: true)
         }
     }
+}
+
+extension HomeViewController: HomeSectionListViewDelegate {
+    func pushInfoView(sectionType: HomeSectionType, consumeType: ConsumeType) {
+        switch sectionType {
+        case .tossBank:
+            print("토스뱅크 섹션")
+        case .assets:
+            print("자산 섹션")
+        case .consumption:
+            print("소비 섹션")
+        }
+    }
+    
+    
 }
