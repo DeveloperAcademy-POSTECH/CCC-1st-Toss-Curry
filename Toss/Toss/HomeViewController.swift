@@ -24,12 +24,14 @@ class HomeViewController: UIViewController {
         let assetSectionView = HomeSectionView(frame: .zero, sectionData: data[1])
         let consumeSectionView = HomeSectionView(frame: .zero, sectionData: data[2])
         let homeInformationView = HomeInformationView(frame: .zero)
+        let homeSettingView = HomeSettingView(frame: .zero)
         
         [
             tossSectionView,
             assetSectionView,
             consumeSectionView,
-            homeInformationView
+            homeInformationView,
+            homeSettingView
         ].forEach { stackView.addArrangedSubview($0) }
         
         return stackView
@@ -88,7 +90,7 @@ private extension HomeViewController {
         
         let navigationAppearance = UINavigationBarAppearance()
         navigationAppearance.configureWithDefaultBackground()
-        navigationAppearance.backgroundEffect = UIBlurEffect(style: .systemThickMaterialLight)
+        navigationAppearance.backgroundEffect = UIBlurEffect(style: .light)
         navigationAppearance.shadowColor = nil
         navigationController?.navigationBar.standardAppearance = navigationAppearance
 
