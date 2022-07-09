@@ -24,6 +24,7 @@ class HomeSectionNameView: UIView {
             switch button.state {
             case .highlighted:
                 button.configuration?.baseBackgroundColor = UIColor(red: 209/255, green: 209/255, blue: 214/255, alpha: 1.0)
+                // TODO: highlighted때가 아닌 버튼이 Push되었을 때 pushView 하도록 수정
                 self.delegate?.pushTossBankView(type: self.sectionType)
             default:
                 button.configuration?.baseBackgroundColor = .white

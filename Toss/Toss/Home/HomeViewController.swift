@@ -26,9 +26,9 @@ class HomeViewController: UIViewController {
         let homeInformationView = HomeInformationView(frame: .zero)
         let homeSettingView = HomeSettingView(frame: .zero)
         
-        tossSectionView.delegate = self
-        assetSectionView.delegate = self
-        consumeSectionView.delegate = self
+        tossSectionView.nameViewdelegate = self
+        assetSectionView.nameViewdelegate = self
+        consumeSectionView.nameViewdelegate = self
         
         [
             tossSectionView,
@@ -111,7 +111,10 @@ private extension HomeViewController {
         
         scrollView.addSubview(contentView)
         contentView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
+            $0.top.equalToSuperview().inset(20.0)
             $0.width.equalToSuperview()
             $0.height.equalTo(scrollView.contentLayoutGuide.snp.height)
         }

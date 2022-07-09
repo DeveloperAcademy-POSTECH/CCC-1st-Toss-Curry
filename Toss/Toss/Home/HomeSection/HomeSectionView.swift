@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class HomeSectionView: UIView {
-    weak var delegate: HomeSectionNameViewDelegate?
+    weak var nameViewdelegate: HomeSectionNameViewDelegate?
     
     var sectionData: TossData
     
@@ -20,7 +20,7 @@ class HomeSectionView: UIView {
         stackView.spacing = 0.0
         
         let homeSectionNameView = HomeSectionNameView(frame: .zero, type: sectionData.sectionType)
-        let homeSectionListView = HomeSectionListView(frame: .zero, list: sectionData.sectionList)
+        let homeSectionListView = HomeSectionListView(frame: .zero, type: sectionData.sectionType, list: sectionData.sectionList)
         
         homeSectionNameView.delegate = self
         
@@ -55,6 +55,6 @@ class HomeSectionView: UIView {
 
 extension HomeSectionView: HomeSectionNameViewDelegate {
     func pushTossBankView(type: HomeSectionType) {
-        delegate?.pushTossBankView(type: type)
+        nameViewdelegate?.pushTossBankView(type: type)
     }
 }

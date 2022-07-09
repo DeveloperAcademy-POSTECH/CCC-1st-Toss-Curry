@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 class HomeSectionListView: UIView {
+    var sectionType: HomeSectionType
     var sectionList: [SectionList]
     
     private lazy var tableView: UITableView = {
@@ -28,7 +29,8 @@ class HomeSectionListView: UIView {
         return tableView
     }()
         
-    init(frame: CGRect, list: [SectionList]) {
+    init(frame: CGRect,type: HomeSectionType ,list: [SectionList]) {
+        sectionType = type
         sectionList = list
         
         super.init(frame: frame)
@@ -89,4 +91,9 @@ public extension UIView {
         border.frame = CGRect(x: 0, y: self.frame.size.height - 1, width: self.frame.size.width, height: 1)
         self.layer.addSublayer(border)
     }
+}
+
+// TODO: ListView에 데이터 연결 필요
+protocol HomeSectionListViewDelegate: AnyObject {
+    func pushInfoView(sectionType: HomeSectionType, consumeType: ConsumeType)
 }

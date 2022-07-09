@@ -86,16 +86,9 @@
 				55A0A4992870679F00945C74 /* .swiftlint.yml */,
 				55A0A4842870402000945C74 /* AppDelegate.swift */,
 				55A0A4862870402000945C74 /* SceneDelegate.swift */,
-				55A0A49D28706AB400945C74 /* TabBarController.swift */,
-				55A0A49F28706DC500945C74 /* HomeViewController.swift */,
-				55A0A4A3287078FE00945C74 /* HomeSectionView.swift */,
-				55A0A4A728707DF200945C74 /* HomeSectionNameView.swift */,
-				55A0A4A9287096D000945C74 /* HomeSectionListView.swift */,
-				55A0A4AB28709C7900945C74 /* HomeSectionListCell.swift */,
-				55A0A4AD28731D1500945C74 /* HomeInformationView.swift */,
-				55A0A4AF28731E9F00945C74 /* HomeInformationCell.swift */,
-				55A0A4B32879705400945C74 /* HomeSettingView.swift */,
 				55A0A4B1287361B900945C74 /* TestDetailView.swift */,
+				55A0A49D28706AB400945C74 /* TabBarController.swift */,
+				55A0A4BB2879E82500945C74 /* Home */,
 				55A0A4B52879E4BB00945C74 /* TossBankView.swift */,
 				55A0A4B72879E68E00945C74 /* AssetView.swift */,
 				55A0A4B92879E69C00945C74 /* ConsumeView.swift */,
@@ -105,6 +98,37 @@
 				55A0A4922870402200945C74 /* Info.plist */,
 			);
 			path = Toss;
+			sourceTree = "<group>";
+		};
+		55A0A4BB2879E82500945C74 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				55A0A49F28706DC500945C74 /* HomeViewController.swift */,
+				55A0A4BC2879E82F00945C74 /* HomeSection */,
+				55A0A4BD2879E83A00945C74 /* HomeInformation */,
+				55A0A4B32879705400945C74 /* HomeSettingView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		55A0A4BC2879E82F00945C74 /* HomeSection */ = {
+			isa = PBXGroup;
+			children = (
+				55A0A4A3287078FE00945C74 /* HomeSectionView.swift */,
+				55A0A4A728707DF200945C74 /* HomeSectionNameView.swift */,
+				55A0A4A9287096D000945C74 /* HomeSectionListView.swift */,
+				55A0A4AB28709C7900945C74 /* HomeSectionListCell.swift */,
+			);
+			path = HomeSection;
+			sourceTree = "<group>";
+		};
+		55A0A4BD2879E83A00945C74 /* HomeInformation */ = {
+			isa = PBXGroup;
+			children = (
+				55A0A4AD28731D1500945C74 /* HomeInformationView.swift */,
+				55A0A4AF28731E9F00945C74 /* HomeInformationCell.swift */,
+			);
+			path = HomeInformation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
