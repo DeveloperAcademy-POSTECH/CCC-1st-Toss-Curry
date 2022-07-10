@@ -58,12 +58,14 @@ let tossRow = SectionList(image: "TossBankImage", description: "7월 1일 대출
 
 let assetRow1 = SectionList(image: "assetCorp", description: "보통예금(IBK나라사랑통장)", title: "100,000원", type: .account)
 let assetRow2 = SectionList(image: "assetToss", description: "투자/토스증권", title: "100,000원", type: .account)
+let assetRow3 = SectionList(image: "assetCorp", description: "IBK기업은행 예금", title: "100,000원", type: .account)
+let assetRow4 = SectionList(image: "PointMoneyImage", description: "포인트・머니 ・ 3개", title: "50,000원", type: .etc)
 
 let consumeRow1 = SectionList(image: "ConsumptionImage", description: "이번 달 쓴 금액", title: "300,000원", type: .card)
 let consumeRow2 = SectionList(image: "DdayImage", description: "7월 11일 낼 카드값", title: "50,000원", type: .etc)
 
 let tossSectionData = TossData(sectionType: .tossBank, sectionList: [tossRow])
-let assetSectionData = TossData(sectionType: .assets, sectionList: [assetRow1, assetRow2])
+let assetSectionData = TossData(sectionType: .assets, sectionList: [assetRow1, assetRow2, assetRow3, assetRow4])
 let consumeSectionData = TossData(sectionType: .consumption, sectionList: [consumeRow1, consumeRow2])
 
 let dummyData = [tossSectionData, assetSectionData, consumeSectionData]
