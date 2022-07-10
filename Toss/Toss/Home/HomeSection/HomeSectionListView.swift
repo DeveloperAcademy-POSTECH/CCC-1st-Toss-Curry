@@ -51,12 +51,10 @@ class HomeSectionListView: UIView {
 }
 
 extension HomeSectionListView: UITableViewDelegate {
-    // TODO: show View 구현
-    // TODO: 터치 시 그림자 안사라지는 오류 구현
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.pushInfoView(sectionType: sectionType, consumeType: sectionList[indexPath.row].type)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
-    
 }
 
 extension HomeSectionListView: UITableViewDataSource {
@@ -95,7 +93,7 @@ public extension UIView {
     }
 }
 
-// TODO: ListView에 데이터 연결 필요
+// TODO: ListView에 데이터 연결 필요 - 각 셀마다 다른 데이터 전달해주어야함
 protocol HomeSectionListViewDelegate: AnyObject {
     func pushInfoView(sectionType: HomeSectionType, consumeType: ConsumeType)
 }

@@ -101,7 +101,6 @@ private extension HomeViewController {
         navigationAppearance.backgroundEffect = UIBlurEffect(style: .light)
         navigationAppearance.shadowColor = nil
         navigationController?.navigationBar.standardAppearance = navigationAppearance
-
     }
     
     func setupLayout() {
@@ -167,13 +166,18 @@ extension HomeViewController: HomeSectionListViewDelegate {
     func pushInfoView(sectionType: HomeSectionType, consumeType: ConsumeType) {
         switch sectionType {
         case .tossBank:
-            print("토스뱅크 섹션")
+            self.navigationController?.pushViewController(TossBankView(), animated: true)
         case .assets:
-            print("자산 섹션")
+            switch consumeType {
+            case .account:
+                print("자산 - 계좌 cell row")
+            case .card:
+                print("error: 잘못된 데이터가 전송되었습니다.")
+            case .etc:
+                self.navigationController?.pushViewController(AssetView(), animated: true)
+            }
         case .consumption:
-            print("소비 섹션")
+            self.navigationController?.pushViewController(ConsumeView(), animated: true)
         }
     }
-    
-    
 }
