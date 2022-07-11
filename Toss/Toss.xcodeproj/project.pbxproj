@@ -64,6 +64,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55639984287C5A9E0041A99B /* DetailViews */ = {
+			isa = PBXGroup;
+			children = (
+				55A0A4B52879E4BB00945C74 /* TossBankView.swift */,
+				55A0A4B72879E68E00945C74 /* AssetView.swift */,
+				55A0A4B92879E69C00945C74 /* ConsumeView.swift */,
+			);
+			path = DetailViews;
+			sourceTree = "<group>";
+		};
 		55A0A4782870402000945C74 = {
 			isa = PBXGroup;
 			children = (
@@ -89,9 +99,6 @@
 				55A0A4B1287361B900945C74 /* TestDetailView.swift */,
 				55A0A49D28706AB400945C74 /* TabBarController.swift */,
 				55A0A4BB2879E82500945C74 /* Home */,
-				55A0A4B52879E4BB00945C74 /* TossBankView.swift */,
-				55A0A4B72879E68E00945C74 /* AssetView.swift */,
-				55A0A4B92879E69C00945C74 /* ConsumeView.swift */,
 				55A0A4A528707B6400945C74 /* Model.swift */,
 				55A0A48D2870402200945C74 /* Assets.xcassets */,
 				55A0A48F2870402200945C74 /* LaunchScreen.storyboard */,
@@ -107,6 +114,7 @@
 				55A0A4BC2879E82F00945C74 /* HomeSection */,
 				55A0A4BD2879E83A00945C74 /* HomeInformation */,
 				55A0A4B32879705400945C74 /* HomeSettingView.swift */,
+				55639984287C5A9E0041A99B /* DetailViews */,
 			);
 			path = Home;
 			sourceTree = "<group>";
