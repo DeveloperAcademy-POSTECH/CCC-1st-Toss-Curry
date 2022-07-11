@@ -76,23 +76,6 @@ extension HomeSectionListView: UITableViewDataSource {
     }
 }
 
-// 출처 : https://ios-development.tistory.com/215
-public extension UIView {
-    func addBottomBorderWithColor(color: UIColor) {
-        let border = CALayer()
-        border.backgroundColor = color.cgColor
-        border.frame = CGRect(x: 0, y: self.frame.size.height, width: self.frame.size.width, height: 1)
-        self.layer.addSublayer(border)
-    }
-
-    func addAboveTheBottomBorderWithColor(color: UIColor) {
-        let border = CALayer()
-        border.backgroundColor = color.cgColor
-        border.frame = CGRect(x: 0, y: self.frame.size.height - 1, width: self.frame.size.width, height: 1)
-        self.layer.addSublayer(border)
-    }
-}
-
 // TODO: ListView에 데이터 연결 필요 - 각 셀마다 다른 데이터 전달해주어야함
 protocol HomeSectionListViewDelegate: AnyObject {
     func pushInfoView(sectionType: HomeSectionType, consumeType: ConsumeType)

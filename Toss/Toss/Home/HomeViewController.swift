@@ -137,18 +137,6 @@ private extension HomeViewController {
     }
 }
 
-// 출처 : jeohong (https://github.com/DeveloperAcademy-POSTECH/CCC-1st-Toss-Chikong/blob/UI/Toss/Toss/ViewController.swift)
-extension UIImage {
-    func resizeTo(size: CGSize) -> UIImage {
-        let rendered = UIGraphicsImageRenderer(size: size)
-        let image = rendered.image { _ in
-            self.draw(in: CGRect.init(origin: CGPoint.zero, size: size))
-        }
-        
-        return image.withRenderingMode(self.renderingMode)
-    }
-}
-
 extension HomeViewController: HomeSectionNameViewDelegate {
     func pushTossBankView(type: HomeSectionType) {
         switch type {
