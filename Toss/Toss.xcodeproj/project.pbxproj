@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		55639986287C5ACC0041A99B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55639985287C5ACC0041A99B /* Extension.swift */; };
+		55639988287C82CD0041A99B /* TossWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55639987287C82CD0041A99B /* TossWebView.swift */; };
 		55A0A4852870402000945C74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A0A4842870402000945C74 /* AppDelegate.swift */; };
 		55A0A4872870402000945C74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A0A4862870402000945C74 /* SceneDelegate.swift */; };
 		55A0A48E2870402200945C74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55A0A48D2870402200945C74 /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		55639985287C5ACC0041A99B /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		55639987287C82CD0041A99B /* TossWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TossWebView.swift; sourceTree = "<group>"; };
 		55A0A4812870402000945C74 /* Toss.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toss.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55A0A4842870402000945C74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55A0A4862870402000945C74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				55A0A4B52879E4BB00945C74 /* TossBankView.swift */,
 				55A0A4B72879E68E00945C74 /* AssetView.swift */,
 				55A0A4B92879E69C00945C74 /* ConsumeView.swift */,
+				55639987287C82CD0041A99B /* TossWebView.swift */,
 			);
 			path = DetailViews;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				55A0A4A828707DF200945C74 /* HomeSectionNameView.swift in Sources */,
 				55A0A4A628707B6400945C74 /* Model.swift in Sources */,
 				55A0A4A028706DC500945C74 /* HomeViewController.swift in Sources */,
+				55639988287C82CD0041A99B /* TossWebView.swift in Sources */,
 				55639986287C5ACC0041A99B /* Extension.swift in Sources */,
 				55A0A4B028731E9F00945C74 /* HomeInformationCell.swift in Sources */,
 				55A0A4AA287096D000945C74 /* HomeSectionListView.swift in Sources */,

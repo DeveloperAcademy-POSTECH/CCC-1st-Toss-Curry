@@ -75,6 +75,7 @@ class HomeViewController: UIViewController {
         let image = UIImage(named: "TossLogo")?.resizeTo(size: CGSize(width: 120.0, height: 300.0))
         let button = UIButton()
         button.setBackgroundImage(image, for: .normal)
+        button.addTarget(self, action: #selector(presentTossWebView), for: .touchDown)
         
         let barButton = UIBarButtonItem(customView: button)
         barButton.tintColor = .lightGray
@@ -190,6 +191,11 @@ private extension HomeViewController {
     
     @objc func pushView() {
         self.navigationController?.pushViewController(TestDetailView(), animated: true)
+    }
+    
+    @objc func presentTossWebView() {
+        let navigationController = UINavigationController(rootViewController: TossWebView())
+        self.present(navigationController, animated: true, completion: nil)
     }
 }
 
