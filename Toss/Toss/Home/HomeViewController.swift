@@ -11,7 +11,12 @@ import SnapKit
 class HomeViewController: UIViewController {
     var data: [TossData] = []
     
-    private let scrollView = UIScrollView()
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.delegate = self
+        
+        return scrollView
+    }()
     private let contentView = UIView()
     
     private lazy var stackView: UIStackView = {
@@ -77,6 +82,49 @@ class HomeViewController: UIViewController {
         return barButton
     }()
     
+    private lazy var stickyFooter: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemBackground
+        
+        let label = UILabel()
+        label.text = "소비"
+        label.font = .systemFont(ofSize: 24.0, weight: .semibold)
+        
+        view.addSubview(label)
+        label.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(40.0)
+            $0.top.equalToSuperview().inset(24.0)
+        }
+        
+        return view
+    }()
+    
+    var isSticky: Bool = true {
+        didSet {
+            if isSticky {
+                stickyFooter.isHidden = false
+                stickyFooter.snp.remakeConstraints {
+                    $0.height.equalTo(62.0)
+                    $0.leading.equalToSuperview()
+                    $0.trailing.equalToSuperview()
+                    $0.bottom.equalToSuperview()
+                }
+                
+                UIView.animate(withDuration: 0.2) {
+                    self.stickyFooter.layoutIfNeeded()
+                }
+            } else {
+                stickyFooter.isHidden = true
+            }
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        stickyFooter.halfRoundCorners(corner: [.topLeft, .topRight], radius: 20.0)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         data = dummyData
@@ -130,6 +178,14 @@ private extension HomeViewController {
             $0.bottom.equalToSuperview()
             $0.height.equalToSuperview()
         }
+        
+        view.addSubview(stickyFooter)
+        stickyFooter.snp.makeConstraints {
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
+            $0.height.equalTo(62.0)
+        }
     }
     
     @objc func pushView() {
@@ -166,6 +222,16 @@ extension HomeViewController: HomeSectionListViewDelegate {
             }
         case .consumption:
             self.navigationController?.pushViewController(ConsumeView(), animated: true)
+        }
+    }
+}
+
+extension HomeViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > 76.0 {
+            isSticky = false
+        } else {
+            isSticky = true
         }
     }
 }

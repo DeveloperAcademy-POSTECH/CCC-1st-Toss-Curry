@@ -34,5 +34,12 @@ public extension UIView {
         border.frame = CGRect(x: 0, y: self.frame.size.height - 1, width: self.frame.size.width, height: 1)
         self.layer.addSublayer(border)
     }
+    
+    // 출처 : https://github.com/DeveloperAcademy-POSTECH/CCC-1st-Toss-Evan/commit/fa87f86d093a1c26e7746f6f44ac5326ee507fd9
+    func halfRoundCorners(corner: UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corner, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        layer.mask = mask
+    }
 }
-
