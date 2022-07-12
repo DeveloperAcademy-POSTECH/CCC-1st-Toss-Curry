@@ -9,6 +9,7 @@ import UIKit
 import WebKit
 import SnapKit
 
+// TODO: ViewController의 이름은 무조건 ViewController로 설정!!
 class TossWebView: UIViewController {
     private var webView = WKWebView()
     
@@ -23,6 +24,7 @@ class TossWebView: UIViewController {
         self.dismiss(animated: true)
     }
     
+    // TODO: WebView의 constraint 설정
     override func loadView() {
         let webConfiguration = WKWebViewConfiguration()
         webView = WKWebView(frame: .zero, configuration: webConfiguration)

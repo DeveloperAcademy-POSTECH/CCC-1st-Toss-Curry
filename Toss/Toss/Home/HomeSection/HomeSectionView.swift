@@ -14,6 +14,7 @@ class HomeSectionView: UIView {
     
     var sectionData: TossData
     
+    // TODO: homeSectionNameView, homeSectionListView를 stackView 밖에서 구현하기
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -55,6 +56,7 @@ class HomeSectionView: UIView {
     }
 }
 
+// TODO: Delegate끼리 연결하기 구현
 extension HomeSectionView: HomeSectionNameViewDelegate {
     func pushTossBankView(type: HomeSectionType) {
         nameViewDelegate?.pushTossBankView(type: type)

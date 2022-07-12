@@ -104,6 +104,8 @@ class HomeViewController: UIViewController {
         didSet {
             if isSticky {
                 stickyFooter.isHidden = false
+                
+                // TODO: animation이 들어갈 때 constraint가 설정되도록 해서 구현
                 stickyFooter.snp.remakeConstraints {
                     $0.height.equalTo(62.0)
                     $0.leading.equalToSuperview()
