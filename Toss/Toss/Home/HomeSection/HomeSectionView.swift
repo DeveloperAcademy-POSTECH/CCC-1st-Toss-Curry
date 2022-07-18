@@ -9,22 +9,21 @@ import UIKit
 import SnapKit
 
 class HomeSectionView: UIView {
+    lazy var homeSectionNameView = HomeSectionNameView(frame: .zero, type: sectionData.sectionType)
+    lazy var homeSectionListView = HomeSectionListView(frame: .zero, type: sectionData.sectionType, list: sectionData.sectionList)
+    
     weak var nameViewDelegate: HomeSectionNameViewDelegate?
     weak var listViewDelegate: HomeSectionListViewDelegate?
     
     var sectionData: TossData
     
-    // TODO: homeSectionNameView, homeSectionListView를 stackView 밖에서 구현하기
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.distribution = .equalSpacing
         stackView.spacing = 0.0
         
-        let homeSectionNameView = HomeSectionNameView(frame: .zero, type: sectionData.sectionType)
-        let homeSectionListView = HomeSectionListView(frame: .zero, type: sectionData.sectionType, list: sectionData.sectionList)
-        
-        homeSectionNameView.delegate = self
+//        homeSectionNameView.delegate = self
         homeSectionListView.delegate = self
         
         [
@@ -36,10 +35,12 @@ class HomeSectionView: UIView {
     }()
     
     // Custom Initializer
-    init(frame: CGRect, sectionData: TossData) {
+    init(frame: CGRect, sectionData: TossData, nameViewDelegate: HomeSectionNameViewDelegate?) {
         self.sectionData = sectionData
 
         super.init(frame: frame)
+        
+        self.homeSectionNameView.delegate = nameViewDelegate
         
         addSubview(stackView)
         
@@ -56,12 +57,12 @@ class HomeSectionView: UIView {
     }
 }
 
-// TODO: Delegate끼리 연결하기 구현
-extension HomeSectionView: HomeSectionNameViewDelegate {
-    func pushTossBankView(type: HomeSectionType) {
-        nameViewDelegate?.pushTossBankView(type: type)
-    }
-}
+// TODO: Delegate끼리 연결하기 구현 (참고사항 따라하기)
+// extension HomeSectionView: HomeSectionNameViewDelegate {
+//    func pushTossBankView(type: HomeSectionType) {
+//        nameViewDelegate?.pushTossBankView(type: type)
+//    }
+// }
 
 extension HomeSectionView: HomeSectionListViewDelegate {
     func pushInfoView(sectionType: HomeSectionType, consumeType: ConsumeType) {

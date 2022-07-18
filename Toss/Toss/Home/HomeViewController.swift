@@ -9,6 +9,12 @@ import UIKit
 import SnapKit
 
 class HomeViewController: UIViewController {
+    lazy var tossSectionView = HomeSectionView(frame: .zero, sectionData: data[0], nameViewDelegate: self)
+    lazy var assetSectionView = HomeSectionView(frame: .zero, sectionData: data[1], nameViewDelegate: self)
+    lazy var consumeSectionView = HomeSectionView(frame: .zero, sectionData: data[2], nameViewDelegate: self)
+    let homeInformationView = HomeInformationView(frame: .zero)
+    let homeSettingView = HomeSettingView(frame: .zero)
+    
     var data: [TossData] = []
     
     private lazy var scrollView: UIScrollView = {
@@ -25,15 +31,10 @@ class HomeViewController: UIViewController {
         stackView.distribution = .equalSpacing
         stackView.spacing = 11.0
         
-        let tossSectionView = HomeSectionView(frame: .zero, sectionData: data[0])
-        let assetSectionView = HomeSectionView(frame: .zero, sectionData: data[1])
-        let consumeSectionView = HomeSectionView(frame: .zero, sectionData: data[2])
-        let homeInformationView = HomeInformationView(frame: .zero)
-        let homeSettingView = HomeSettingView(frame: .zero)
-        
-        tossSectionView.nameViewDelegate = self
-        assetSectionView.nameViewDelegate = self
-        consumeSectionView.nameViewDelegate = self
+        // delegate 연결 참고
+//        tossSectionView.nameViewDelegate = self
+//        assetSectionView.nameViewDelegate = self
+//        consumeSectionView.nameViewDelegate = self
         
         tossSectionView.listViewDelegate = self
         assetSectionView.listViewDelegate = self
