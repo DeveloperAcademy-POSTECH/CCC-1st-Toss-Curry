@@ -45,7 +45,8 @@ class HomeSectionListCell: UITableViewCell {
         button.setTitleColor(.darkGray, for: .normal)
         button.backgroundColor = .secondarySystemBackground
         button.layer.cornerRadius = 8.0
-        
+        button.addTarget(self, action: #selector(checkButton), for: .touchDown)
+                
         return button
     }()
     
@@ -56,6 +57,7 @@ class HomeSectionListCell: UITableViewCell {
         button.setTitleColor(.darkGray, for: .normal)
         button.backgroundColor = .secondarySystemBackground
         button.layer.cornerRadius = 8.0
+        button.addTarget(self, action: #selector(checkButton), for: .touchDown)
         
         return button
     }()
@@ -63,6 +65,10 @@ class HomeSectionListCell: UITableViewCell {
     func setup(row: SectionList) {
         sectionRow = row
         setupViews()
+    }
+    
+    @objc func checkButton() {
+        print("테이블뷰 셀 내의 버튼 터치됨.")
     }
 }
 
@@ -105,7 +111,7 @@ private extension HomeSectionListCell {
     }
     
     func setupSendButtonLayout() {
-        addSubview(sendButton)
+        contentView.addSubview(sendButton)
         sendButton.snp.makeConstraints {
             $0.trailing.equalToSuperview().inset(24.0)
             $0.centerY.equalTo(snp.centerY)
@@ -115,7 +121,7 @@ private extension HomeSectionListCell {
     }
     
     func setupHistoryButtonLayout() {
-        addSubview(historyButton)
+        contentView.addSubview(historyButton)
         historyButton.snp.makeConstraints {
             $0.trailing.equalToSuperview().inset(24.0)
             $0.centerY.equalTo(snp.centerY)

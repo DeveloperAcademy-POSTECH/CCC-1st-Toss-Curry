@@ -29,5 +29,13 @@ class TabBarController: UITabBarController {
         viewControllers = [
             homeViewController
         ]
+        
+        tabBar.isTranslucent = false
+        tabBar.tintColor = .label
+        tabBar.layer.masksToBounds = true
+        tabBar.backgroundColor = .systemBackground
+        tabBar.layer.cornerRadius = 20.0
+        tabBar.layer.borderColor = UIColor.lightGray.cgColor
+        tabBar.layer.borderWidth = 0.2
     }
 }

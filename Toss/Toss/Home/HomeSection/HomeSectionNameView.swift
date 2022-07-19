@@ -9,14 +9,29 @@ import UIKit
 import SnapKit
 
 class HomeSectionNameView: UIView {
+    weak var delegate: HomeSectionNameViewDelegate?
+    
     var sectionType: HomeSectionType
     
-    // TODO: 버튼 터치 시 깜빡임 애니메이션 구현
     private lazy var pushViewButton: UIButton = {
-        let button = UIButton()
-        button.addTarget(nil, action: #selector(pushView), for: .touchUpInside)
+        var config = UIButton.Configuration.filled()
+        config.baseBackgroundColor = .white
+        config.cornerStyle = .medium
         
-        return button
+        var pushButton = UIButton(configuration: config, primaryAction: UIAction(handler: { _ in
+            self.delegate?.pushTossBankView(type: self.sectionType)
+        }))
+        
+        pushButton.configurationUpdateHandler = { button in
+            switch button.state {
+            case .highlighted:
+                button.configuration?.baseBackgroundColor = UIColor(red: 209/255, green: 209/255, blue: 214/255, alpha: 1.0)
+            default:
+                button.configuration?.baseBackgroundColor = .white
+            }
+        }
+        
+        return pushButton
     }()
     
     private lazy var sectionNameLabel: UILabel = {
@@ -34,15 +49,11 @@ class HomeSectionNameView: UIView {
         return imageView
     }()
     
-    // TODO: pushView 구현필요
-    @objc func pushView() {
-        print("Touched HomeSectionNameView")
-    }
-    
     init(frame: CGRect, type: HomeSectionType) {
         sectionType = type
         
         super.init(frame: frame)
+        self.layer.cornerRadius = 15.0
         
         setupViews()
     }
@@ -75,4 +86,8 @@ private extension HomeSectionNameView {
             $0.trailing.equalToSuperview().inset(24.0)
         }
     }
+}
+
+protocol HomeSectionNameViewDelegate: AnyObject {
+    func pushTossBankView(type: HomeSectionType)
 }
